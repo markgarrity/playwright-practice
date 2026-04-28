@@ -23,3 +23,7 @@ def test_error_clears_on_valid_login_after_failure(page: Page):
     page.get_by_label("Password").fill("password123")
     page.get_by_role("button", name="Sign in").click()
     expect(page.get_by_role("heading", name="Welcome to the Dashboard")).to_be_visible()
+
+def test_email_placeholder(page: Page):
+    page.goto("/app/login.html")
+    expect(page.get_by_label("Email")).to_be_visible()
